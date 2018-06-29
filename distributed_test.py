@@ -42,4 +42,8 @@ with tf.Session("grpc://172.17.0.21:2222") as sess:
         sess.run(train_step,feed_dict={x_: x, t_:t})
 
         if i%100==0:
-            print "loss,", sess.run(e,feed_dict={x_: x, t_:t})
+            loss = sess.run(e,feed_dict={x_: x, t_:t})
+            if loss < 10:
+                break
+            else:
+                print "loss,", loss
