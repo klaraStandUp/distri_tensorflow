@@ -31,7 +31,7 @@ with tf.device("/job:master/task:0"):
 opt=tf.train.AdamOptimizer()
 train_step=opt.minimize(e)
 
-with tf.Session("grpc://172.17.0.21:2222") as sess:
+with tf.Session("grpc://172.17.0.4:2222") as sess:
 
     sess.run(tf.initialize_all_variables())
     for i in range(10000):
